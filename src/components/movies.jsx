@@ -15,6 +15,7 @@ class Movies extends Component {
     genres: [],
     sortColumn: { path: "title", order: "asc" },
   };
+
   componentDidMount() {
     this.setState({
       movies: getMovies(),
@@ -45,13 +46,8 @@ class Movies extends Component {
     return { totalCount: count, data: movies };
   };
   render() {
-    const {
-      pageSize,
-      currentPage,
-      genres,
-      selectedGenre,
-      sortColumn,
-    } = this.state;
+    const { pageSize, currentPage, genres, selectedGenre, sortColumn } =
+      this.state;
 
     const { totalCount: count, data: movies } = this.getPagedData();
     if (count === 0) return <p>There are no movies in the list</p>;
